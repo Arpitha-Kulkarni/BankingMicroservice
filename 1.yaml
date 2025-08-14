@@ -1,8 +1,14 @@
 ---
- -name: playbook
-  host: localhost
+- name: playbook
+  hosts: localhost
+  become: yes       # << This runs tasks as root
   tasks:
-     - command: apt update
-     - apt:
-        name: maven
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install apache2
+      apt:
+        name: apache2
         state: present
+
