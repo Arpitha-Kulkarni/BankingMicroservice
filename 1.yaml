@@ -1,6 +1,6 @@
 ---
  - name: playbook
-   hosts: webservers
+   hosts: 10.10.25.197
    become: yes
    tasks:
      - name: update apt cache
